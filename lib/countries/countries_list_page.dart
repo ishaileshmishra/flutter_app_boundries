@@ -1,26 +1,44 @@
 import 'dart:convert';
+import 'package:boundries/API.dart';
+import 'package:boundries/countries/country.dart';
 import 'package:boundries/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:http/http.dart' as http;
 
-_getStream() async {
-
-  var response = await http.get('https://restcountries.eu/rest/v2/all');
-  print('Response status: ${response.statusCode}');
-  print('Response body: ${response.body}');
-  Iterable countries = json.decode(response.body);
-  for(var country in countries){
-    debugPrint(country);
-  }
-}
-
-
 class _CountriesState extends State<Countries> {
+  var allCountries = new List<Country>();
 
+  _getStream() async {
+    allCountries.clear();
+    var response = await http.get('https://restcountries.eu/rest/v2/all');
+    print('Response status: ${response.statusCode}');
+    print('Response body: ${response.body}');
+    Iterable countries = json.decode(response.body);
+    for (var country in countries) {
+      debugPrint(country);
+      allCountries.add(country);
+    }
+
+    return allCountries;
+  }
+
+  _getCountries() {
+    API.getALLCountrues().then((response) {
+      setState(() {
+        Iterable list = json.decode(response.body);
+        allCountries = list.map((model) => Country.fromJson(model)).toList();
+      });
+    });
+  }
 
   initState() {
     super.initState();
-    _getStream();
+    _getCountries();
+  }
+
+  dispose() {
+    super.dispose();
   }
 
   @override
@@ -34,15 +52,32 @@ class _CountriesState extends State<Countries> {
           Expanded(
               child: Container(
             child: ListView.builder(
-                itemCount: 4,
+                itemCount: allCountries.length,
                 itemBuilder: (context, index) {
                   return Card(
                     elevation: 2.0,
                     child: Container(
                       margin: EdgeInsets.all(10.0),
-                      //child:
-
-                      //listTile,
+                      child: ListTile(
+                          dense: true,
+                          onTap: () =>
+                              print('Tapped ${allCountries[index].name}'),
+                          contentPadding: EdgeInsets.all(5),
+                          title: Text(
+                            allCountries[index].name,
+                            style: TextStyle(
+                                fontSize: 18, fontWeight: FontWeight.bold),
+                          ),
+                          leading: Container(
+                            child: SvgPicture.network
+                              (
+                                allCountries[index].flag,
+                              height: double.infinity,
+                              width: 80,
+                              fit: BoxFit.cover,
+                            )),
+                          subtitle: Text(allCountries[index].subregion),
+                          trailing: Text(allCountries[index].region)),
                     ),
                   );
                 }),
