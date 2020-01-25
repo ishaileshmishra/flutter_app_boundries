@@ -1,0 +1,1 @@
+String ALL = 'https://restcountries.eu/rest/v2/all';
