@@ -58,5 +58,5 @@ var listTile = ListTile(
 var headerContainer = Container(
     width: double.infinity, height: 250,
   decoration: BoxDecoration(borderRadius: BorderRadius.only(bottomLeft: Radius.circular(100))),
-  child: Image.asset('assets/img/map.png',),
+  child: Image.asset('assets/img/map.png', color: Colors.purple,),
 );
