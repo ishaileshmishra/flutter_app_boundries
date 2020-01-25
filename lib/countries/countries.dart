@@ -6,20 +6,27 @@ class _CountriesState extends State<Countries> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: CustomScrollView(
-          slivers: <Widget>[
-            sliverAppBar,
-            SliverList(
-              delegate: SliverChildBuilderDelegate(
-                (context, index) => Container(
-                  margin: EdgeInsets.all(6),
-                  decoration: bocDecoration,
-                  child: (listTile),
-                ),
-              ),
-            ),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+
+            headerContainer,
+
+            Expanded(child: Container(
+              child: ListView.builder(
+                  itemCount: 14, itemBuilder: (context, index){
+                return Card(elevation: 2.0,
+                  child: Container(
+                     margin: EdgeInsets.all(10.0),
+                    child: listTile,
+                  ),
+                );
+              }),
+            ))
+
           ],
-        ),
+
+        )
       ),
     );
   }
