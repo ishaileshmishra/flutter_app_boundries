@@ -33,6 +33,9 @@ class _CountriesState extends State<Countries> with AutomaticKeepAliveClientMixi
               length: 5,
               child: Scaffold(
                   appBar: AppBar(
+                    automaticallyImplyLeading: false,
+                    title: Text('Countries By Region'.toUpperCase()),
+                    centerTitle: true,
                     bottom: PreferredSize(
                         child: TabBar(
                             isScrollable: true,

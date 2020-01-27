@@ -1,4 +1,5 @@
 import 'package:boundries/countries/countries_list_page.dart';
+import 'package:boundries/onboarding.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -12,9 +13,10 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
-        brightness: Brightness.dark
+        brightness: Brightness.dark,
+        fontFamily: 'CM Sans Serif',
       ),
-      home: Countries(),
+      home: OnboardingScreen(),
     );
   }
 }
