@@ -31,9 +31,24 @@ var headerContainer = Container(
           bottomLeft: Radius.circular(100)
       )),
   child: Image.asset(
-    'assets/img/map.png',
+    'assets/images/map.png',
   ),
 );
+
+
+final kTitleStyle = TextStyle(
+  color: Colors.white,
+  fontFamily: 'CM Sans Serif',
+  fontSize: 26.0,
+  height: 1.5,
+);
+
+final kSubtitleStyle = TextStyle(
+  color: Colors.white,
+  fontSize: 18.0,
+  height: 1.2,
+);
+
 
 
 

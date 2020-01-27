@@ -9,8 +9,8 @@ class Countries extends StatefulWidget {
   _CountriesState createState() => _CountriesState();
 }
 
-class _CountriesState extends State<Countries>
-    with AutomaticKeepAliveClientMixin {
+class _CountriesState extends State<Countries> with AutomaticKeepAliveClientMixin {
+
   @override
   bool get wantKeepAlive => true;
 
