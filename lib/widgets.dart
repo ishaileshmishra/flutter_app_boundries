@@ -25,8 +25,7 @@ var bocDecoration = BoxDecoration(
 
 
 var headerContainer = Container(
-  width: double.infinity,
-  height: 250,
+  width: double.infinity, height: 250,
   decoration: BoxDecoration(
       borderRadius: BorderRadius.only(
           bottomLeft: Radius.circular(100)

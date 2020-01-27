@@ -15,6 +15,7 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
+
   List<Country> allCountries = List<Country>();
 
   _countriesByRegion() {
@@ -24,7 +25,7 @@ class _ListPageState extends State<ListPage> {
       setState(() {
         Iterable list = json.decode(response.body);
         allCountries = list.map((model) => Country.fromJson(model)).toList();
-        debugPrint(allCountries.toString());
+        //debugPrint(allCountries.toString());
       });
     });
   }
