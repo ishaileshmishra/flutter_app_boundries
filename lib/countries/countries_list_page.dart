@@ -3,28 +3,14 @@ import 'package:boundries/API.dart';
 import 'package:boundries/countries/country.dart';
 import 'package:boundries/widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:http/http.dart' as http;
 
 class _CountriesState extends State<Countries> {
+
   var allCountries = new List<Country>();
 
-  _getStream() async {
-    allCountries.clear();
-    var response = await http.get('https://restcountries.eu/rest/v2/all');
-    print('Response status: ${response.statusCode}');
-    print('Response body: ${response.body}');
-    Iterable countries = json.decode(response.body);
-    for (var country in countries) {
-      debugPrint(country);
-      allCountries.add(country);
-    }
-
-    return allCountries;
-  }
-
   _getCountries() {
-    API.getALLCountrues().then((response) {
+    allCountries.clear();
+    API.getALLCountries().then((response) {
       setState(() {
         Iterable list = json.decode(response.body);
         allCountries = list.map((model) => Country.fromJson(model)).toList();
@@ -32,9 +18,48 @@ class _CountriesState extends State<Countries> {
     });
   }
 
+
+  _countriesByRegion(region) {
+    allCountries.clear();
+    API.getCountryByRegion(region).then((response) {
+      setState(() {
+        Iterable list = json.decode(response.body);
+        allCountries = list.map((model) => Country.fromJson(model)).toList();
+      });
+    });
+  }
+
+
+  Widget _renderCountries(region){
+
+    _countriesByRegion(region);
+
+    return ListView.builder(
+        itemCount: allCountries.length,
+        itemBuilder: (context, index) {
+          return Card(
+            elevation: 2.0,
+            child: Container(
+              margin: EdgeInsets.all(10.0),
+              child: ListTile(
+                  onTap: () => print('Tapped ${allCountries[index].name}'),
+                  contentPadding: EdgeInsets.all(5),
+                  title: Text(allCountries[index].name, style: textLarge),
+                  leading: Icon(Icons.flag, size: 40),
+                  subtitle: Text(allCountries[index].capital, style: textMedium),
+                  trailing: Text(allCountries[index].region, style: textSmall)),
+            ),
+          );
+        });
+
+  }
+
+
+
   initState() {
     super.initState();
-    _getCountries();
+    //_getCountries();
+    //debugPrint('all countries: ${allCountries.length}');
   }
 
   dispose() {
@@ -50,44 +75,56 @@ class _CountriesState extends State<Countries> {
         children: <Widget>[
           headerContainer,
           Expanded(
-              child: Container(
-            child: ListView.builder(
-                itemCount: allCountries.length,
-                itemBuilder: (context, index) {
-                  return Card(
-                    elevation: 2.0,
-                    child: Container(
-                      margin: EdgeInsets.all(10.0),
-                      child: ListTile(
-                          dense: true,
-                          onTap: () =>
-                              print('Tapped ${allCountries[index].name}'),
-                          contentPadding: EdgeInsets.all(5),
-                          title: Text(
-                            allCountries[index].name,
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
-                          leading: Container(
-                            child: SvgPicture.network
-                              (
-                                allCountries[index].flag,
-                              height: double.infinity,
-                              width: 80,
-                              fit: BoxFit.cover,
-                            )),
-                          subtitle: Text(allCountries[index].subregion),
-                          trailing: Text(allCountries[index].region)),
+
+              child: DefaultTabController(
+                length: 5,
+                child: Scaffold(
+                    appBar: AppBar(
+                      bottom: PreferredSize(
+                          child: TabBar(
+                              isScrollable: true,
+                              unselectedLabelColor: Colors.white.withOpacity(0.3),
+                              indicatorColor: Colors.white,
+                              tabs: [
+                                Tab(child: Text('Asia', style: textMedium),
+                                ),
+                                Tab(
+                                  child: Text('Africa', style: textMedium),
+                                ),
+                                Tab(
+                                  child: Text('Americas', style: textMedium),
+                                ),
+                                Tab(
+                                  child: Text('Europe', style: textMedium),
+                                ),
+                                Tab(
+                                  child: Text('Oceania', style: textMedium),
+                                )
+                              ]),
+                          preferredSize: Size.fromHeight(20.0)),
+
                     ),
-                  );
-                }),
-          ))
+                    body: TabBarView(
+                      children: <Widget>[
+                        Container(child: _renderCountries('asia')),
+                        Container(child: _renderCountries('asia')),
+                        Container(child: _renderCountries('asia')),
+                        Container(child: _renderCountries('asia')),
+                        Container(child: _renderCountries('asia')),
+                      ],
+                    )),
+              ),
+
+
+          )
         ],
       )),
     );
   }
 
-  //Something to add
+
+
+
 
 }
 
