@@ -2,11 +2,17 @@ import 'package:boundries/countries/render%20_list.dart';
 import 'package:boundries/widgets.dart';
 import 'package:flutter/material.dart';
 
-class _CountriesState extends State<Countries> with AutomaticKeepAliveClientMixin{
+class Countries extends StatefulWidget {
+  Countries({Key key}) : super(key: key);
 
   @override
-  bool get wantKeepAlive => true;
+  _CountriesState createState() => _CountriesState();
+}
 
+class _CountriesState extends State<Countries>
+    with AutomaticKeepAliveClientMixin {
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void dispose() {
@@ -56,13 +62,4 @@ class _CountriesState extends State<Countries> with AutomaticKeepAliveClientMixi
       )),
     );
   }
-
-}
-
-class Countries extends StatefulWidget {
-
-  Countries({Key key}) : super(key: key);
-
-  @override
-  _CountriesState createState() => _CountriesState();
 }

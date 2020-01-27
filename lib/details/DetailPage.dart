@@ -1,4 +1,5 @@
 import 'package:boundries/countries/country.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {
@@ -17,6 +18,13 @@ class _DetailPageState extends State<DetailPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.country.name),
+        elevation: 0.0,
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+          child: Icon(CupertinoIcons.clear, size: 40),
+        ),
       ),
       body: Container(
         child: Center(

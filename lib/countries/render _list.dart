@@ -6,7 +6,6 @@ import 'package:boundries/widgets.dart';
 import 'package:flutter/material.dart';
 
 class ListPage extends StatefulWidget {
-
   ListPage({Key key, this.region}) : super(key: key);
 
   final String region;
@@ -16,7 +15,6 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
-
   List<Country> allCountries = List<Country>();
 
   _countriesByRegion() {
@@ -55,9 +53,10 @@ class _ListPageState extends State<ListPage> {
         margin: EdgeInsets.all(10.0),
         child: ListTile(
             onTap: () {
-              Navigator.push(context,
-                  MaterialPageRoute(builder: (context) =>
-                      DetailPage(country=country)));
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => DetailPage(country = country)));
             },
             contentPadding: EdgeInsets.all(5),
             title: Text(country.name, style: textLarge),
