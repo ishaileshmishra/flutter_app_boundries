@@ -3,18 +3,20 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class DetailPage extends StatefulWidget {
+  
+  final Country country;
 
   DetailPage(this.country);
-
-  final Country country;
 
   @override
   _DetailPageState createState() => _DetailPageState();
 }
 
 class _DetailPageState extends State<DetailPage> {
+  
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.country.name),
@@ -26,6 +28,7 @@ class _DetailPageState extends State<DetailPage> {
           child: Icon(CupertinoIcons.clear, size: 40),
         ),
       ),
+
       body: Container(
         child: Center(
           child: Text('Details Page: ${widget.country.capital}'),

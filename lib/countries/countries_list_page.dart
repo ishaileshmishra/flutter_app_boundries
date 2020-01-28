@@ -34,10 +34,9 @@ class _CountriesState extends State<Countries> with AutomaticKeepAliveClientMixi
               child: Scaffold(
                   appBar: AppBar(
                     automaticallyImplyLeading: false,
-                    title: Text('Countries By Region'.toUpperCase()),
-                    centerTitle: true,
-                    bottom: PreferredSize(
-                        child: TabBar(
+                    title: Text('Countries By Region', style: textMedium,),
+                    //centerTitle: true,
+                    bottom: PreferredSize( child: TabBar(
                             isScrollable: true,
                             unselectedLabelColor: Colors.white.withOpacity(0.3),
                             indicatorColor: Colors.white,
@@ -48,6 +47,7 @@ class _CountriesState extends State<Countries> with AutomaticKeepAliveClientMixi
                               Tab(child: Text('Europe', style: textMedium)),
                               Tab(child: Text('Oceania', style: textMedium))
                             ]),
+                            
                         preferredSize: Size.fromHeight(20.0)),
                   ),
                   body: TabBarView(

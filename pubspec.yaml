@@ -24,7 +24,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   http: ^0.12.0+4
-  #flutter_svg: ^0.17.0
+  flutter_svg: ^0.17.0
+
 
 dev_dependencies:
   flutter_test:
@@ -48,7 +49,7 @@ flutter:
     - assets/images/
 
   fonts:
-    - family: CM Sans Serif
+    - family: nunito
       fonts:
-        - asset: assets/fonts/cm_sans_serif_2012.ttf
+        - asset: assets/fonts/nunito/nunito-regular.ttf
 

@@ -4,6 +4,8 @@ import 'package:boundries/countries/country.dart';
 import 'package:boundries/details/DetailPage.dart';
 import 'package:boundries/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class ListPage extends StatefulWidget {
   ListPage({Key key, this.region}) : super(key: key);
@@ -15,7 +17,6 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
-
   List<Country> allCountries = List<Country>();
 
   _countriesByRegion() {
@@ -25,7 +26,7 @@ class _ListPageState extends State<ListPage> {
       setState(() {
         Iterable list = json.decode(response.body);
         allCountries = list.map((model) => Country.fromJson(model)).toList();
-        //debugPrint(allCountries.toString());
+        debugPrint('${allCountries.toList()}');
       });
     });
   }
@@ -39,6 +40,7 @@ class _ListPageState extends State<ListPage> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.symmetric(horizontal: 10),
       child: ListView.builder(
           itemCount: allCountries.length,
           itemBuilder: (context, index) {
@@ -51,7 +53,6 @@ class _ListPageState extends State<ListPage> {
     return Card(
       elevation: 2.0,
       child: Container(
-        margin: EdgeInsets.all(10.0),
         child: ListTile(
             onTap: () {
               Navigator.push(
@@ -59,12 +60,28 @@ class _ListPageState extends State<ListPage> {
                   MaterialPageRoute(
                       builder: (context) => DetailPage(country = country)));
             },
-            contentPadding: EdgeInsets.all(5),
             title: Text(country.name, style: textLarge),
-            leading: Icon(Icons.flag, size: 40),
+            leading: Container(
+              height: double.infinity,
+              width: 60.0,
+              child: ClipRRect(
+                  borderRadius: new BorderRadius.circular(30.0),
+                  child: networkSvg(country.flag)),
+            ),
             subtitle: Text(country.capital, style: textMedium),
             trailing: Text(country.region, style: textSmall)),
       ),
+    );
+  }
+
+  Widget networkSvg(String flag) {
+    return SvgPicture.network(
+      flag,
+      fit: BoxFit.cover,
+      allowDrawingOutsideViewBox: true,
+      placeholderBuilder: (BuildContext context) => Container(
+          padding: const EdgeInsets.all(30.0),
+          child: const CircularProgressIndicator()),
     );
   }
 }

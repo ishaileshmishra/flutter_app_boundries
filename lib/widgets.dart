@@ -3,19 +3,19 @@ import 'package:flutter/material.dart';
 
 var textLarge = TextStyle(
   fontWeight: FontWeight.bold,
-  fontSize: 18,
+  fontSize: 16,
   wordSpacing: 1.2,
 );
 
 var textMedium = TextStyle(
   fontWeight: FontWeight.normal,
-  fontSize: 15,
+  fontSize: 14,
   wordSpacing: 1.2,
 );
 
 var textSmall = TextStyle(
   fontWeight: FontWeight.normal,
-  fontSize: 12,
+  fontSize: 11,
   wordSpacing: 1.2,
 );
 
@@ -39,13 +39,13 @@ var headerContainer = Container(
 final kTitleStyle = TextStyle(
   color: Colors.white,
   fontFamily: 'CM Sans Serif',
-  fontSize: 26.0,
+  fontSize: 20.0,
   height: 1.5,
 );
 
 final kSubtitleStyle = TextStyle(
   color: Colors.white,
-  fontSize: 18.0,
+  fontSize: 15.0,
   height: 1.2,
 );
 

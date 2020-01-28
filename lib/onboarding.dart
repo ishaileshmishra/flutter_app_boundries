@@ -72,7 +72,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       'Skip',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 20.0,
+                        fontSize: 16.0,
                       ),
                     ),
                   ),
@@ -115,8 +115,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           ],
                         ),
                       ),
+
+
                       Padding(
-                        padding: EdgeInsets.all(40.0),
+                        padding: EdgeInsets.only(left: 20, right: 20, bottom: 60),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[

@@ -12,11 +12,11 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        brightness: Brightness.light,
-        fontFamily: 'CM Sans Serif',
+          primarySwatch: Colors.blue,
+          brightness: Brightness.dark,
+          fontFamily: 'nunito'
       ),
-      home: OnboardingScreen(),
+      home: Countries(),//OnboardingScreen(),
     );
   }
 }
