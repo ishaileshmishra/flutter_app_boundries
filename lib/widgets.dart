@@ -62,6 +62,7 @@ Widget flipCard(String front, String back) {
   return FlipCard(
     direction: FlipDirection.HORIZONTAL, // default
     front: Container(
+      padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
           color: Colors.grey,
           borderRadius: BorderRadius.all(Radius.circular(4))),
@@ -70,6 +71,7 @@ Widget flipCard(String front, String back) {
       ),
     ),
     back: Container(
+      padding: EdgeInsets.all(8),
       decoration: BoxDecoration(
           color: Colors.orange,
           borderRadius: BorderRadius.all(Radius.circular(4))),
