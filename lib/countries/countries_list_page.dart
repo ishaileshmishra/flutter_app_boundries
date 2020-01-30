@@ -3,13 +3,16 @@ import 'package:boundries/widgets.dart';
 import 'package:flutter/material.dart';
 
 class Countries extends StatefulWidget {
+
   Countries({Key key}) : super(key: key);
 
   @override
   _CountriesState createState() => _CountriesState();
+
 }
 
-class _CountriesState extends State<Countries> with AutomaticKeepAliveClientMixin {
+class _CountriesState extends State<Countries>
+    with AutomaticKeepAliveClientMixin {
 
   @override
   bool get wantKeepAlive => true;
@@ -34,8 +37,11 @@ class _CountriesState extends State<Countries> with AutomaticKeepAliveClientMixi
               child: Scaffold(
                   appBar: AppBar(
                     automaticallyImplyLeading: false,
-                    title: Text('Countries By Region', style: textMedium,),
-                    //centerTitle: true,
+
+                    title: Text(
+                      'Countries By Region', style: textMedium,
+                    ),
+
                     bottom: PreferredSize( child: TabBar(
                             isScrollable: true,
                             unselectedLabelColor: Colors.white.withOpacity(0.3),
@@ -47,9 +53,9 @@ class _CountriesState extends State<Countries> with AutomaticKeepAliveClientMixi
                               Tab(child: Text('Europe', style: textMedium)),
                               Tab(child: Text('Oceania', style: textMedium))
                             ]),
-                            
                         preferredSize: Size.fromHeight(20.0)),
                   ),
+
                   body: TabBarView(
                     children: <Widget>[
                       Container(child: ListPage(region: 'asia')),
@@ -59,6 +65,7 @@ class _CountriesState extends State<Countries> with AutomaticKeepAliveClientMixi
                       Container(child: ListPage(region: 'oceania')),
                     ],
                   )),
+
             ),
           )
         ],

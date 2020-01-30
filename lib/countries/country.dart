@@ -1,7 +1,6 @@
 import 'dart:collection';
 
-class Country{
-
+class Country {
   final String name;
   final List topLevelDomain;
   final String alpha2Code;
@@ -22,9 +21,25 @@ class Country{
   final String flag;
   final String cioc;
 
-  Country(this.name, this.topLevelDomain, this.alpha2Code, this.alpha3Code, this.callingCodes, this.capital, this.altSpellings,
-      this.region, this.subregion, this.population, this.demonym, this.area, this.timezones, this.borders,
-      this.nativeName, this.numericCode, this.translations, this.flag,
+  Country(
+      this.name,
+      this.topLevelDomain,
+      this.alpha2Code,
+      this.alpha3Code,
+      this.callingCodes,
+      this.capital,
+      this.altSpellings,
+      this.region,
+      this.subregion,
+      this.population,
+      this.demonym,
+      this.area,
+      this.timezones,
+      this.borders,
+      this.nativeName,
+      this.numericCode,
+      this.translations,
+      this.flag,
       this.cioc);
 
   Country.fromJson(Map json)
@@ -52,6 +67,4 @@ class Country{
   String toString() {
     return 'Country{name: $name, alpha2Code: $alpha2Code, alpha3Code: $alpha3Code, capital: $capital, region: $region, subregion: $subregion, population: $population, demonym: $demonym, area: $area, borders: $borders, nativeName: $nativeName, numericCode: $numericCode, translations: $translations, flag: $flag, cioc: $cioc}';
   }
-
-
 }

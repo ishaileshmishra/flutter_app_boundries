@@ -15,7 +15,7 @@ var textMedium = TextStyle(
 );
 
 var textSmall = TextStyle(
-  fontWeight: FontWeight.normal,
+  fontWeight: FontWeight.bold,
   fontSize: 11,
   wordSpacing: 1.2,
 );
@@ -48,6 +48,7 @@ final kSubtitleStyle = TextStyle(
 );
 
 Widget networkSvg(String flag) {
+
   return SvgPicture.network(
     flag,
     fit: BoxFit.cover,
@@ -59,6 +60,7 @@ Widget networkSvg(String flag) {
 }
 
 Widget flipCard(String front, String back) {
+
   return FlipCard(
     direction: FlipDirection.HORIZONTAL, // default
     front: Container(
@@ -79,4 +81,5 @@ Widget flipCard(String front, String back) {
           child: Text(back, style: textLarge)),
     ),
   );
+
 }

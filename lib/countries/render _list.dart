@@ -6,9 +6,7 @@ import 'package:boundries/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
-
 class ListPage extends StatefulWidget {
-
   ListPage({Key key, this.region}) : super(key: key);
 
   final String region;
@@ -18,7 +16,6 @@ class ListPage extends StatefulWidget {
 }
 
 class _ListPageState extends State<ListPage> {
-
   List<Country> allCountries = List<Country>();
 
   _countriesByRegion() {
@@ -72,7 +69,7 @@ class _ListPageState extends State<ListPage> {
                     child: networkSvg(country.flag)),
               )),
           subtitle: Text(country.capital, style: textMedium),
-          trailing: Text(country.region, style: textSmall)),
+          trailing: Text('${country.population}', style: textLarge)),
     );
   }
 }

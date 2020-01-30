@@ -1,6 +1,5 @@
 import 'package:boundries/countries/country.dart';
 import 'package:boundries/widgets.dart';
-import 'package:flip_card/flip_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -54,10 +53,9 @@ class _DetailPageState extends State<DetailPage> {
               crossAxisSpacing: 10,
               mainAxisSpacing: 10,
               crossAxisCount: 2,
+
               children: <Widget>[
-
-
-                flipCard('Capital', '${widget.country.capital}'),
+                flipCard('CAPITAL', '${widget.country.capital}'),
                 flipCard('ALT SPELLINGS', '${widget.country.altSpellings}'),
                 flipCard('REGION', '${widget.country.region}'),
                 flipCard('SUBRESION', '${widget.country.subregion}'),
@@ -70,11 +68,10 @@ class _DetailPageState extends State<DetailPage> {
                 flipCard('NUMERIC CODES', '${widget.country.numericCode}'),
                 flipCard('TRANSLATIONS', '${widget.country.translations}'),
                 flipCard('Top Level Domain', '${widget.country.topLevelDomain}'),
-                flipCard('Alpha 2 Code', '${widget.country.alpha2Code}'),
-                flipCard('Alpha 3 Code', '${widget.country.alpha3Code}'),
+                flipCard('ALPHA 2 and 3 Codes', '${widget.country.alpha2Code} & ${widget.country.alpha3Code}'),
                 flipCard('Calling Codes', '${widget.country.callingCodes}'),
-
               ],
+
             ),
           ),
         ],
