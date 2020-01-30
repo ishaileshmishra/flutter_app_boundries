@@ -1,4 +1,4 @@
-import 'package:boundries/countries/countries_list_page.dart';
+import 'package:boundries/home/countries_list_page.dart';
 import 'package:boundries/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';

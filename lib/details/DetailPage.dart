@@ -1,4 +1,4 @@
-import 'package:boundries/countries/country.dart';
+import 'package:boundries/home/country.dart';
 import 'package:boundries/widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

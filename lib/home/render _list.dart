@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:boundries/API.dart';
-import 'package:boundries/countries/country.dart';
+import 'package:boundries/home/country.dart';
 import 'package:boundries/details/DetailPage.dart';
 import 'package:boundries/widgets.dart';
 import 'package:flutter/material.dart';
