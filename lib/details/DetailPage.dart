@@ -11,12 +11,16 @@ class DetailPage extends StatefulWidget {
 
   @override
   _DetailPageState createState() => _DetailPageState();
+
 }
 
 class _DetailPageState extends State<DetailPage> {
+
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
+      
       appBar: AppBar(
         title: Text('About ${widget.country.name}'),
         elevation: 0.0,
@@ -27,6 +31,7 @@ class _DetailPageState extends State<DetailPage> {
           child: Icon(CupertinoIcons.clear, size: 40),
         ),
       ),
+
       //body: SingleChildScrollView(
       body: Column(
         children: <Widget>[
@@ -44,7 +49,6 @@ class _DetailPageState extends State<DetailPage> {
             ),
           ),
 
-          //SizedBox(height: 10),
 
           Expanded(
             child: GridView.count(

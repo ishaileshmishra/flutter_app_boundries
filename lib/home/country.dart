@@ -65,6 +65,8 @@ class Country {
 
   @override
   String toString() {
-    return 'Country{name: $name, alpha2Code: $alpha2Code, alpha3Code: $alpha3Code, capital: $capital, region: $region, subregion: $subregion, population: $population, demonym: $demonym, area: $area, borders: $borders, nativeName: $nativeName, numericCode: $numericCode, translations: $translations, flag: $flag, cioc: $cioc}';
+    return 'Country{name: $name, alpha2Code: $alpha2Code, alpha3Code: $alpha3Code, capital: $capital, region: $region, subregion: $subregion, '
+        'population: $population, demonym: $demonym, area: $area, borders: $borders, nativeName: $nativeName, numericCode: $numericCode, '
+        'translations: $translations, flag: $flag, cioc: $cioc}';
   }
 }

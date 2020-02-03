@@ -69,7 +69,7 @@ class _ListPageState extends State<ListPage> {
                     child: networkSvg(country.flag)),
               )),
           subtitle: Text(country.capital, style: textMedium),
-          trailing: Text('${country.population}', style: textLarge)),
+          trailing: Text('${country.population}', style: textSmall)),
     );
   }
 }
