@@ -1,4 +1,4 @@
-import 'package:boundries/home/render%20_list.dart';
+import 'package:boundries/home/render_list.dart';
 import 'package:boundries/widgets.dart';
 import 'package:flutter/material.dart';
 
